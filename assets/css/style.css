@@ -226,6 +226,7 @@ body.is-openMenu .l_header__path {
 }
 
 .l_gnav {
+  opacity: 0;
   transition: opacity 0.3s linear;
   background-color: yellow;
 }
