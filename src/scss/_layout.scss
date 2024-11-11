@@ -1,0 +1,265 @@
+@use './variables' as *;
+@use './mixin' as *;
+
+// 全体枠
+.l_container {
+  position: relative;
+
+  // モバイル、タブレット用のヘッダーの余白
+  @include touch {
+    padding-top: 70px;
+  }
+
+  // デスクトップ用のヘッダーの余白
+  @include desktop {
+    padding-top: 100px;
+  }
+}
+
+// ヘッダー
+.l_header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: background-color .3s linear;
+
+  // モバイル、タブレットのヘッダーのスタイル
+  @include touch {
+    height: 70px;
+  }
+
+  // デスクトップのヘッダースタイル
+  @include desktop {
+    display: flex;
+    height: 100px;
+    padding: 0 32px 0 40px;
+    background-color: #fff;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  // リンクの設定: 下線なし
+  a {
+    text-decoration: none;
+  }
+
+  // コンテンツを含む部分
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px; //height: 100%
+    width: 100%;
+    padding: 0 20px;
+
+    @include desktop {
+      height: 100px;
+      padding: 0;
+    }
+  }
+
+  // ロゴ
+  &__logo {
+    width: 160px;
+    height: auto;
+    @include ov;
+
+    @include desktop {
+      width: 240px;
+    }
+  }
+
+  &__svg {
+    width: 160px; // width: 100%;
+    height: 40px; // height: auto
+
+    @include desktop {
+      width: 240px;
+      height: 60px;
+    }
+  }
+
+  &__path {
+    fill: $color_primary;
+    width: 100%;
+    height: auto;
+  }
+
+  body.is-openMenu &__path {
+    fill: #fff;
+  }
+
+  // ハンバーガーボタン
+  &__btn {
+    width: 32px;
+    height: 20px;
+    background: none;
+    display: block;
+
+    @include desktop {
+      display: none;
+    }
+
+    span {
+      position: relative;
+      display: block;
+      height: 2px;
+      background-color: #000;
+      transition: all .3s;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #000;
+        transition: all .3s;
+      }
+
+      &::before {
+        top: -10px;
+      }
+
+      &::after {
+        top: 10px;
+      }
+    }
+  }
+
+  @at-root body.is-openMenu {
+    // .l_header__path {}
+
+    // モバイル、タブレットのbodyのスタイル
+    @include touch {
+      position: absolute;
+      overflow: hidden;
+
+      .l_header {
+        background-color: $color_bg_dark;
+      }
+    }
+  }
+
+}
+
+// グローバルナビゲーション
+.l_gnav {
+  // opacity: 0;
+  transition: opacity .3s linear;
+  background-color: yellow; //後で削除
+
+  @include touch {
+    pointer-events: none; //マウスやタッチ操作ができなくなる
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+  }
+
+  @include touch {
+    padding-top: 40px;
+  }
+
+  @include desktop {
+    opacity: 1;
+  }
+
+  @at-root body.is-openMenu {
+    .l_gnav {
+      pointer-events: auto; // initialでも可
+      opacity: 1;
+      height: calc(100vh - 70px); // 画面の高さ - ヘッダーの高さ
+      background-color: $color_bg_dark;
+    }
+  }
+
+  // リスト
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto; //中身が親要素の高さを上回った時にスクロールバーを出す
+    overflow-x: hidden;
+
+    @include desktop {
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+  }
+
+  // リストアイテム
+  &__item {
+    @include fz(18);
+    @include font-webfont_Lato;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+
+    @include desktop {
+      @include fz(15);
+    }
+
+    // .l_gnav__item + .l_gnav__item
+    // 1つ目以外のアイテム
+    &+& {
+      @include touch {
+        margin-top: 26px;
+      }
+    }
+
+    a {
+      display: block;
+      padding: 0 20px;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+
+      @include desktop {
+        color: $color_secondary;
+      }
+    }
+
+  }
+
+}
+
+
+// パンクズリスト
+.l_breadcrumb {
+  padding: 16px 20px 22px;
+  background-color: #e2ded4;
+
+  @include desktop {
+    padding: 16px 40px 22px;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    @include fz(12);
+    @include font-webfont_Lato;
+    margin-top: 6px;
+
+    &+& {
+      &::before {
+        content: '/';
+        margin: 0 .5em;
+      }
+    }
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        opacity: .5;
+      }
+    }
+  }
+}
