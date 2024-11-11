@@ -327,4 +327,12 @@ body.is-openMenu .l_gnav {
 }
 .l_breadcrumb__item a:hover {
   opacity: 0.5;
+}
+
+.a {
+  color: #aaa;
+}
+
+.b {
+  color: #bbb;
 }/*# sourceMappingURL=style.css.map */
