@@ -263,3 +263,16 @@
     }
   }
 }
+
+
+// メイン
+.l_main {
+  min-height: 500px;
+  padding-bottom: 40px;
+  background-color: $color_bg;
+
+  @include desktop {
+    padding-top: 20px;
+    padding-bottom: 85px;
+  }
+}
