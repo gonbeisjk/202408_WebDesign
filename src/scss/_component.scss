@@ -102,3 +102,56 @@
     }
   }
 }
+
+// 商品詳細
+.c_detail {
+  @include touch {
+    background-color: #fff;
+  }
+
+  &__inner {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-direction: column;
+
+    @include desktop {
+      flex-direction: row;
+      padding-bottom: 80px;
+    }
+  }
+
+  // メイン
+  &__main {
+    @include desktop {
+      max-width: 600px;
+      margin-top: -20px;
+    }
+  }
+
+  // スライダー
+
+  // サムネイル
+  &__thumbs {
+    display: none;
+
+    @include desktop {
+      display: block;
+    }
+  }
+
+  // コンテンツ
+  &__contents {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    margin: 0 20px;
+
+    @include desktop {
+      padding-bottom: 70px;
+      padding-left: 5%;
+      margin: 0 30px;
+    }
+  }
+
+}

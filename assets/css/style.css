@@ -547,6 +547,51 @@ body.is-openMenu .l_gnav {
   margin-left: 0;
 }
 
+@media (max-width: 999px) {
+  .c_detail {
+    background-color: #fff;
+  }
+}
+.c_detail__inner {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-direction: column;
+}
+@media (min-width: 1000px) {
+  .c_detail__inner {
+    flex-direction: row;
+    padding-bottom: 80px;
+  }
+}
+@media (min-width: 1000px) {
+  .c_detail__main {
+    max-width: 600px;
+    margin-top: -20px;
+  }
+}
+.c_detail__thumbs {
+  display: none;
+}
+@media (min-width: 1000px) {
+  .c_detail__thumbs {
+    display: block;
+  }
+}
+.c_detail__contents {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  margin: 0 20px;
+}
+@media (min-width: 1000px) {
+  .c_detail__contents {
+    padding-bottom: 70px;
+    padding-left: 5%;
+    margin: 0 30px;
+  }
+}
+
 .e_card {
   overflow: hidden;
   background-color: #fff;
