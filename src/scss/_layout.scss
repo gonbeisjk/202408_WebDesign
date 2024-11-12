@@ -24,6 +24,7 @@
   width: 100%;
   z-index: 100;
   transition: background-color .3s linear;
+  background-color: #fff;
 
   // モバイル、タブレットのヘッダーのスタイル
   @include touch {
@@ -143,6 +144,29 @@
         background-color: $color_bg_dark;
       }
     }
+
+    // ハンバーガーボタン
+    .l_header__btn {
+      span {
+        background-color: transparent;
+
+        &::before,
+        &::after {
+          background-color: #fff;
+          top: 0;
+        }
+
+        &::before {
+          // transform: rotate(45deg);
+          rotate: 45deg;
+        }
+
+        &::after {
+          // transform: rotate(-45deg);
+          rotate: -45deg;
+        }
+      }
+    }
   }
 
 }
@@ -151,7 +175,6 @@
 .l_gnav {
   opacity: 0;
   transition: opacity .3s linear;
-  background-color: yellow; //後で削除
 
   @include touch {
     pointer-events: none; //マウスやタッチ操作ができなくなる
