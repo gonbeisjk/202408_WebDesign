@@ -1,6 +1,7 @@
 @forward './base';
 @forward './layout';
 @forward './component';
+@forward './element';
 
 // テスト
 @forward './test/'; // test/_index.scss
