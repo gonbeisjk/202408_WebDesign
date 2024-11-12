@@ -369,5 +369,17 @@
 
   }
 
-  //nav
+  // コピーライト
+  &__copy {
+    color: #fff;
+    @include fz(10);
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 30px;
+
+    @include desktop {
+      align-items: flex-end;
+      margin-top: 0;
+    }
+  }
 }

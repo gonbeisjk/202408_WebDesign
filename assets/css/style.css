@@ -426,6 +426,20 @@ body.is-openMenu .l_gnav {
     padding: 6px 0;
   }
 }
+.l_footer__copy {
+  color: #fff;
+  font-size: 10px;
+  font-size: 0.625rem;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 30px;
+}
+@media (min-width: 1000px) {
+  .l_footer__copy {
+    align-items: flex-end;
+    margin-top: 0;
+  }
+}
 
 .c_kv {
   background-color: #ded6c5;
