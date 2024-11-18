@@ -126,3 +126,15 @@ input {
 
   }
 }
+
+.e_btnGroup {
+  display: flex;
+
+  &._left {
+    // 左寄せの指定
+  }
+
+  &__note {
+    @include fz(12);
+  }
+}
