@@ -10,7 +10,7 @@ const xyz = 'あいうえお';
 
 // 即時関数
 (function () {
-  // Swiperの設定
+  // Swiper - キービジュアルの設定
   const kv = new Swiper('#kv', {
     effect: "fade",
     loop: true,
@@ -27,6 +27,27 @@ const xyz = 'あいうえお';
   //   .addEventListener('click', () => {
   //     kv.slideNext()
   //   })
+
+  // Swiper - 商品詳細（サムネイル）の設定
+  const thumbs = new Swiper('#thumbs', {
+    slidesPerView: 'auto',
+    freeMode: true,
+    watchSlidesProgress: true,
+    // watchSlidesVisibility: true, //廃止
+  });
+
+  // Swiper - 商品詳細（メイン）の設定
+  const main = new Swiper('#main', {
+    thumbs: {
+      swiper: thumbs
+    },
+    loop: true,
+    effect: 'fade',
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  })
 
 })()
 

@@ -164,6 +164,40 @@
   }
 
   // スライダー
+  &__slide {
+    .swiper-slide {
+      @include desktop {
+        height: 600px;
+      }
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 50px;
+      height: 50px;
+      @include ov;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 50px;
+        background-image: url(../img/detail/arrow.png);
+        background-size: 100% auto;
+      }
+    }
+
+    .swiper-button-prev {
+      // transform: rotate(180deg); // 2つ書くと１回転しちゃうのでコメントアウト
+      rotate: 180deg; // 新しいプロパティ
+    }
+  }
 
   // サムネイル
   &__thumbs {
@@ -171,6 +205,31 @@
 
     @include desktop {
       display: block;
+      margin-top: 20px;
+    }
+
+    // Swiperの設定
+    .swiper-slide {
+      width: 100px;
+      margin-left: 10px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.swiper-slide-thumb-active {
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0; // top: 0, right:0, bottom: 0, left: 0
+          border: 2px solid $color_primary;
+          pointer-events: none;
+        }
+      }
     }
   }
 
